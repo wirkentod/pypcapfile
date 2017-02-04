@@ -57,14 +57,26 @@ class TCP(ctypes.Structure):
             self.payload = ctypes.c_char_p(binascii.hexlify(packet[self.data_offset:]))
 
     def __str__(self):
-        packet = 'tcp %s packet from port %d to port %d carrying %d bytes'
+        #packet = 'tcp %s packet from port %d to port %d carrying %d bytes'
         str_flags = ''
         if self.syn: str_flags += 'S'
         if self.ack: str_flags += 'A'
         if self.rst: str_flags += 'R'
         if self.fin: str_flags += 'F'
         if self.urg: str_flags += 'U'
-        packet = packet % (str_flags, self.src_port, self.dst_port, (len(self.payload) / 2))
+            
+        if self.syn :
+            flag_syn=1
+        else:
+            flag_syn=0
+            
+        if self.fin :
+            flag_fin=1
+        else:
+            flag_fin=0
+            
+        packet = '%s;%s;%s;%s' % (self.src_port, self.dst_port, flag_syn, flag_fin)
+        #packet = packet % (str_flags, self.src_port, self.dst_port, (len(self.payload) / 2))
         return packet
 
     def __len__(self):
