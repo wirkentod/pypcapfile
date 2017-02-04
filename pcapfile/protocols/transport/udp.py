@@ -28,8 +28,10 @@ class UDP(ctypes.Structure):
         self.payload = ctypes.c_char_p(binascii.hexlify(packet[self.udp_header_size:]))
 
     def __str__(self):
-        packet = 'udp packet from port %d to port %d carrying %d bytes'
-        packet = packet % (self.src_port, self.dst_port, (len(self.payload) / 2))
+        #packet = 'udp packet from port %d to port %d carrying %d bytes'
+        #packet = packet % (self.src_port, self.dst_port, (len(self.payload) / 2))
+        
+        packet = '%s;%s' % (self.src_port, self.dst_port)
         return packet
 
     def __len__(self):
