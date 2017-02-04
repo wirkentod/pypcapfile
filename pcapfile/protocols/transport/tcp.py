@@ -10,7 +10,6 @@ class TCP(ctypes.Structure):
     """
     Represents a TCP packet
     """
-    #hola
 
     _fields_ = [('src_port', ctypes.c_ushort),  # source port
                 ('dst_port', ctypes.c_ushort),  # destination port
