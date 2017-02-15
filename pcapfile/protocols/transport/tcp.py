@@ -90,7 +90,7 @@ class TCP(ctypes.Structure):
         else:
             	flag_fin = 0
         
-        packet = '%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s' % (self.src_port, self.dst_port, self.seqnum, self.acknum, self.data_offset, str_flags,self.urg, self.ack, self.psh, self.rst, self.syn, self.fin, self.win, self.sum, self.opt) 
+        packet = '%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s' % (self.src_port, self.dst_port, self.seqnum, self.acknum, self.data_offset, str_flags, flag_urg, flag_ack, flag_psh, flag_rst, flag_syn, flag_fin, self.win, self.sum, self.opt) 
 	#packet = '%s;%s;%s;%s' % (self.src_port, self.dst_port, flag_syn, flag_fin)
         #packet = packet % (str_flags, self.src_port, self.dst_port, (len(self.payload) / 2))
         return packet
