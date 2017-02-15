@@ -65,38 +65,33 @@ class TCP(ctypes.Structure):
         if self.fin: str_flags += 'F'
         if self.urg: str_flags += 'U'
         
-	if self.urg :
+	if self.urg:
         	flag_urg = 1
         else:
             	flag_urg = 0
-				
-	if self.ack :
+	if self.ack:
             	flag_ack = 1
         else:
             	flag_ack = 0
-		
-	if self.psh :
+	if self.psh:
             	flag_psh = 1
         else:
             	flag_psh = 0
-		
-	if self.rst :
+	if self.rst:
             	flag_rst = 1
         else:
             	flag_rst = 0
-                
-        if self.syn :
-            	flag_syn=1
+        if self.syn:
+            	flag_syn = 1
         else:
-            	flag_syn=0
-            
-        if self.fin :
-            	flag_fin=1
+            	flag_syn = 0
+        if self.fin:
+            	flag_fin = 1
         else:
-            	flag_fin=0
+            	flag_fin = 0
         
         packet = '%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s' % (self.src_port, self.dst_port, self.seqnum, self.acknum, self.data_offset, str_flags,self.urg, self.ack, self.psh, self.rst, self.syn, self.fin, self.win, self.sum, self.opt) 
-		#packet = '%s;%s;%s;%s' % (self.src_port, self.dst_port, flag_syn, flag_fin)
+	#packet = '%s;%s;%s;%s' % (self.src_port, self.dst_port, flag_syn, flag_fin)
         #packet = packet % (str_flags, self.src_port, self.dst_port, (len(self.payload) / 2))
         return packet
 
