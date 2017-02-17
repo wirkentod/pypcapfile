@@ -75,8 +75,7 @@ class IP(ctypes.Structure):
     def __str__(self):
         #packet = 'ipv4 packet from %s to %s carrying %d bytes'
         #packet = packet % (self.src, self.dst, (len(self.payload) / 2))
-        
-        packet = '%s;%s;%s;%s' % (self.src, self.dst, self.p, self.len)
+        packet = '%s;%s;%s;%s' % (self.src, self.dst, self.p, self.hl)
         return packet
 
 
