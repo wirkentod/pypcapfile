@@ -91,7 +91,7 @@ class TCP(ctypes.Structure):
             	flag_fin = 0
         
 	# src_port, dst_port | seqnum , acknum, data_offset, urg, ack, psh, rst, syn, fin, win
-	packet = '%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s' % (self.src_port, self.dst_port, self.seqnum, self.acknum, self.data_offset, flag_urg, flag_ack, flag_psh, flag_rst, flag_syn, flag_fin, self.win)
+	packet = '%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s' % (self.src_port, self.dst_port, self.seqnum, self.acknum, self.data_offset, flag_urg, flag_ack, flag_psh, flag_rst, flag_syn, flag_fin, self.win, str_flags)
         #packet = '%s;%s;%s;%s' % (self.src_port, self.dst_port, flag_syn, flag_fin)
         #packet = packet % (str_flags, self.src_port, self.dst_port, (len(self.payload) / 2))
         return packet
