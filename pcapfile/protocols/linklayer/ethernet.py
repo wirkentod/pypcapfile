@@ -51,8 +51,9 @@ class Ethernet(ctypes.Structure):
                 pass
 
     def __str__(self):
-        frame = 'ethernet from %s to %s type %s'
-        frame = frame % (self.src, self.dst, payload_type(self.type)[1])
+        #frame = 'ethernet from %s to %s type %s'
+        #frame = frame % (self.src, self.dst, payload_type(self.type)[1])
+        frame = '%s;%s' % (self.src, self.dst)
         return frame
 
 
